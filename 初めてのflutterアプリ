@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  //コンストラクター
+  const MyApp({super.key});
+
+  @override //アノテーション（親クラスが持っているメソッドと同じ名前のものを定義しますよ）
+  //buildという関数
+  //widgetを戻り値として返す
+  //引数はBuildContextという型のcontext
+  Widget build(BuildContext context) {
+    return const Placeholder(
+      child: Text(
+        "Hello Flutter",
+        textDirection: TextDirection.ltr,
+      ),
+    );
+  }
+}
