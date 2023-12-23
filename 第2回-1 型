@@ -1,0 +1,12 @@
+///コメントアウトは3本線がベストプラクティス
+void main() {
+  ///型を勝手に推測してくれるvar。かなり強力。documentationで確認可能
+  var name = "hello";
+  ///stringとか、型も直接指定できる。数字はint
+  String name2 = "hello2";
+  ///dartではすべてobjectである。
+  Object name3 = "hello3";
+  
+  ///$をつけると""の中でも変数と認識される（インタープレーション）
+  print("$name $name2 $name3");
+}
