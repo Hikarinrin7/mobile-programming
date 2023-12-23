@@ -1,0 +1,31 @@
+//クラスとメソッド
+class Car {
+  
+  String? color;
+  int? num;
+  
+  //コンストラクター
+  //このクラスをもとにインスタンスを作る時の初期値
+  //こうやって呼び出してねーーって感じかな
+  Car(this.color, this.num);
+  
+  //class自体にメソッドを生やすことができる
+  //voidは引数なしの関数
+  void run() {
+    print("$color 色の車が走っています");
+  }
+  
+}
+
+
+void main() {
+  var car1 = Car("white", 1);
+  print("色は${car1.color}, ${car1.num}");
+  
+  //class Carの中にあるメソッドを動かすことができる
+  car1.run();
+  
+    var car2 = Car("red", 1);  
+  //class Carの中にあるメソッドを動かすことができる
+  car2.run();
+}
