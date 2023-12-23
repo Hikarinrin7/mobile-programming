@@ -1,0 +1,17 @@
+//定数を作るときに使うキーワード
+void main() {
+  
+//これが普通だったが
+//   var name = "bob";
+//   name = "alice";
+//   print("name");
+
+//定数を変更できなくするfinalとconst
+  //const:コンパイル時に、先に決定しちゃう
+  //final:実行時に決定する
+  
+  final name = "bob";
+  name = "alice";
+  print(name);
+  
+}
