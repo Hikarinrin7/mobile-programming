@@ -1,0 +1,32 @@
+//クラスの継承
+class Car {
+  String? color;
+  Car(this.color); //コンストラクター
+
+  void run() {
+    print("$color 色の車が走っています");
+  }
+}
+
+//継承させてみよう
+class FireEngine extends Car {
+  //コンストラクター
+  //親クラスのコンストラクターをそのまま使う
+  //superが「親」の意
+  FireEngine(String color) : super(color);
+  
+  void stopFire() {
+    print("消火しています");
+  }
+  
+}
+
+void main() {
+  var car1 = Car("white");
+  car1.run();
+  
+  // 継承したクラスを使ってみよう
+  var car2 = FireEngine("red");
+  car2.run();
+  car2.stopFire();
+}
