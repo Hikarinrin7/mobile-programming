@@ -1,0 +1,26 @@
+// classとコンストラクター
+class Car {
+  
+  String? color;
+  int? num;
+  
+  //コンストラクター
+  //このクラスをもとにインスタンスを作る時の初期値
+// 以下のようにも書けるが・・・ 
+//   Car(String color, int num) {
+//     this.color = color;//classのcolor=引数のcolor
+//     this.num = num;
+//   }
+  
+  Car(this.color, this.num);
+  
+}
+
+
+void main() {
+  var car1 = Car("white", 1);
+  print("色は${car1.color}, ${car1.num}");
+  
+  var car2 = Car("blue", 2);
+  print("色は${car2.color}, ${car2.num}");
+}
