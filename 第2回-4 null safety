@@ -1,0 +1,17 @@
+/// null safety(ヌルが入っているとエラーがでる仕様）
+void main() {
+  ///int?　とすると「ヌルが入るかもしれないよ」の意味
+  int? num;
+  
+//   糖衣構文（syntax sugar）
+//   長ったらしく書くのを短く書けますよ
+//   「numがヌルのとき、numを100にする」
+//   if (num == null) {
+//     num = 100;
+//   }
+  
+  num ??= 100;
+  
+  print(num);
+
+}
