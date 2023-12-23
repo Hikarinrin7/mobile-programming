@@ -1,0 +1,32 @@
+// 関数もオブジェクトである
+// strも関数を持ってる
+// アロー関数
+
+void main() {
+  
+  // 関数の書き方tips
+  //　単なるstr文字列ですら関数（メソッド？）を持ってたりする
+  //　今までは　str toUpper(){}…とかをvoid mainの外でやってたのに
+  var str = "hoge".toUpperCase();
+  print(str);
+  
+  // 変数の宣言のように関数的なものが書けてしまう（非推奨）
+  // funcという変数を宣言
+  // funcに、strという引数を渡すと大文字にして返してくれる
+  var func = (String str) {
+    return str.toUpperCase();
+  };
+  print(func("fuga"));
+  
+  
+  // さっきのは冗長、こう書ける
+  // アロー関数！！
+  var func2 = (String str) => str.toUpperCase();
+  print(func2("allowforce"));
+  
+  
+   //関数もオブジェクトだよ
+  print(func is Object); //true
+  print(func is int); //false
+  
+}
