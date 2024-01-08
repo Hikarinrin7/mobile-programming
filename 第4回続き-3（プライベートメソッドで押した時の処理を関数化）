@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+//void mainは忘れずに
+void main() {
+  runApp(MyApp());
+}
+
+//stateful widget はstfで変換して出そう。
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  //状態を変えたい場合はとりあえずこれを書く
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+
+class _MyAppState extends State<MyApp> {
+  //書き換えるたびにbuildが走る
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("1st stateful app"),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              Text("テキストが表示されるところ"),
+              ElevatedButton(onPressed: _onClick, child: Text("ボタンの名前")),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  //classの中、処理の外に、ボタンを押された時の動作を関数みたいに書いてみよう
+  //このclassの中だけで使うので、関数の内容を見せないために_をつけた関数を使う
+  //プライベートメソッド（プロパティ）と呼ばれる
+  void _onClick() {
+    print("private methodが呼び出されています。");
+
+  }
+}
