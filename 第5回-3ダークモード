@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+
+//void mainは忘れずに
+void main() {
+  runApp(MyApp());
+}
+
+//stateful widget はstfで変換して出そう。
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  //状態を変えたい場合はとりあえずこれを書く
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String msg = "テキストが表示されるところ";
+  int _counter = 0;
+
+  //書き換えるたびにbuildが走る
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      //ThemeDataというウィジェット（ダークモードを簡単に実装）
+      theme: ThemeData(
+        //Brightnessというウィジェット
+        brightness: Brightness.dark,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("1st stateful app"),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              //text(msg)をwidgetでwrap→cmd opt lで整理。
+              //GestureDetector：ジェスチャーを捕まえて
+              GestureDetector(
+                child: Text(msg),
+                //注：以下はデバッグ用の実装を含んでいます
+                onTap: () {
+                  _onClick();
+                  print("onTapのジェスチャーを捕まえた！");
+                },
+              ),
+              ElevatedButton(onPressed: _onClick, child: Text("ボタンの名前")),// ElevatedButton(onPressed: _onClick, child: Text("ボタンの名前")),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  //classの中、処理の外に、ボタンを押された時の動作を関数みたいに書く
+  void _onClick() {
+    print("private methodが呼び出されています。");
+    //画面全体を描画し直すときはsetStateで囲むのが必須です！！！
+    //忘れがちなので注意！！！
+    setState(() {
+      msg = "ボタンが押されましたっ！！！ 回数：$_counter";
+      _counter++;
+    });
+  }
+}
