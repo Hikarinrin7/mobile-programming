@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      title: "画面",
+      home: MyApp(),
+    )
+  );
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String _inputText = "ここに入力された文字列を表示します";
+
+  @override
+  Widget build(BuildContext context) {
+    //なんと！scaffoldには戻るボタンが実装されている
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Screen"),
+      ),
+      body: Column(
+        children: [
+          //いろんなアクションをキャッチできる
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              //decorationでヒントテキストが出せる
+              decoration: InputDecoration(hintText: "文字を入力してね"),
+              onChanged: (value) {
+                print(value);
+                //画面を変化させる処理を書くときはsetState忘れずに！
+                setState(() {
+                  _inputText = value;
+                });
+              },
+            ),
+          ),
+          Text(_inputText),
+        ],
+      ),
+    );
+  }
+}
