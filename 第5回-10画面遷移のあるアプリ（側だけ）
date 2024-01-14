@@ -1,0 +1,71 @@
+/////main.dart//////
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+      MaterialApp(
+        title: "screen0",
+        home: MyApp(),
+      )
+  );
+}
+//初めの画面はstateless
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Screen0"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          //押したらscreenをいどう！！
+          onPressed: null,
+          child: Text("ScreenAに移動"),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+/////screen_A.dart//////
+
+import 'package:flutter/material.dart';
+
+class ScreenA extends StatefulWidget {
+  const ScreenA({super.key});
+
+  @override
+  State<ScreenA> createState() => _ScreenAState();
+}
+
+class _ScreenAState extends State<ScreenA> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("ScreenB"),
+      ),
+      body: Column(
+        children: [
+          TextField(),
+          ElevatedButton(
+            onPressed: null,
+            child: Text("初期画面に戻る"),
+          ),
+          ElevatedButton(
+            onPressed: null,
+            child: Text("ScreenBに移動"),
+          ),
+          Text("hogeee")
+        ],
+      ),
+    );
+  }
+}
+
