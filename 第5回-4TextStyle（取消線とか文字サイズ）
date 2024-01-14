@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+
+//void mainは忘れずに
+void main() {
+  runApp(MyApp());
+}
+
+//stateful widget はstfで変換して出そう。
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  //状態を変えたい場合はとりあえずこれを書く
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String msg = "テキストが表示されるところ";
+  int _counter = 0;
+
+  //書き換えるたびにbuildが走る,buildメソッド
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("1st stateful app"),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              Text(
+                msg,
+                //TextStyleというウィジェット
+                style: TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.green,
+                  decoration: TextDecoration.lineThrough,
+                  decorationColor: Colors.pinkAccent,
+                ),
+              ),
+              ElevatedButton(onPressed: _onClick, child: Text("ボタンの名前")),// ElevatedButton(onPressed: _onClick, child: Text("ボタンの名前")),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  //classの中、処理の外に、ボタンを押された時の動作を関数みたいに書く
+  void _onClick() {
+    print("private methodが呼び出されています。");
+    //画面全体を描画し直すときはsetStateで囲むのが必須です！！！
+    //忘れがちなので注意！！！
+    setState(() {
+      msg = "ボタンが押されましたっ！！！ 回数：$_counter";
+      _counter++;
+    });
+  }
+}
