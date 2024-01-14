@@ -1,0 +1,37 @@
+import 'package:app_0115senni/screens/screen_A.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+      MaterialApp(
+        title: "screen0",
+        home: MyApp(),
+      )
+  );
+}
+//初めの画面はstateless
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Screen0"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          //押したらscreenをいどう！！contextはそのままでおけ
+          onPressed: () {
+            //pushはスタックのpushと同じ感じ
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //return ScreenAは自動補完で書くと一番上のimport文が増える！
+              return ScreenA();
+            }));
+          },
+          child: Text("ScreenAに移動"),
+        ),
+      ),
+    );
+  }
+}
