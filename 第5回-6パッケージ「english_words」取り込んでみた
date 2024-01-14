@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
+//ランダムというクラスを使うためのパッケージ
+import 'dart:math';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Text(
+              //パッケージ「english_words」にある配列nouns
+              //nouns[100]とかで単語が返る
+              //RandomのnextIntは100までのランダムな数字が返る
+              //nouns.lengthはnouns配列の要素数
+              nouns[Random().nextInt(nouns.length)],
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
