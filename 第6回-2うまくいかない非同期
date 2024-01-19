@@ -1,0 +1,41 @@
+import 'dart:io';
+
+void main() {
+  print("非同期プログラミングを勉強しよう！asyncって言うんだって。");
+  doAllTasks();
+}
+
+void doAllTasks() {
+  task1();
+  var task2Result = task2();
+  task3(task2Result);
+}
+
+void task1() {
+  print("Task1が実行されました");
+}
+
+String task2() {
+  Duration threeSeconds = Duration(seconds: 3);
+  // sleep(threeSeconds);
+
+  String result = "";
+
+  //非同期のお作法
+  //3秒たったらFuture.delayedが発火する
+  Future.delayed(threeSeconds, () {
+    print("Task2が実行されました");
+  });
+
+  //async await
+
+  
+  print("時間のかかるTask2は実行中です");
+  return result;
+}
+
+
+
+void task3(task2Result) {
+  print("task2の戻り値は $task2Result です。Task3が実行されました");
+}
