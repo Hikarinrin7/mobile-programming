@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   print("非同期プログラミングを勉強しよう！asyncって言うんだって。");
   doAllTasks();
@@ -14,7 +16,9 @@ void task1() {
 }
 
 void task2() {
-  print("Task2が実行されました");
+  Duration threeSeconds = Duration(seconds: 3);
+  sleep(threeSeconds);
+  print("時間のかかるTask2が実行されました");
 }
 
 void task3() {
