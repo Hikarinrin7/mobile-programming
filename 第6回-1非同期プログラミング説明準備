@@ -1,0 +1,22 @@
+void main() {
+  print("非同期プログラミングを勉強しよう！asyncって言うんだって。");
+  doAllTasks();
+}
+
+void doAllTasks() {
+  task1();
+  task2();
+  task3();
+}
+
+void task1() {
+  print("Task1が実行されました");
+}
+
+void task2() {
+  print("Task2が実行されました");
+}
+
+void task3() {
+  print("Task3が実行されました");
+}
